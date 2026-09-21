@@ -28,7 +28,7 @@ For comprehensive benchmarking, this repository also implements several modern t
 
 ## Project Structure
 
-
+```
 sleep-cohort-analysis/
 ├── requirements.txt           # Python dependencies (mne, wfdb, neurokit2, torch, etc.)
 ├── utils/
@@ -45,37 +45,43 @@ sleep-cohort-analysis/
 │   ├── train.py               # Multi-task training loop, Cosine Annealing, checkpointing
 │   └── evaluate_and_plot.py   # Inference engine, clinical metrics, and IEEE-style plotting
 └── README.md
+```
 Installation
 Clone the repository:
 
-Bash
+```Bash
 git clone [https://github.com/yourusername/Physics-Informed-Multi-Task-Learning-for-Zero-Shot-Sleep-Apnea-Detection-and-Severity-Regression.git](https://github.com/yourusername/Physics-Informed-Multi-Task-Learning-for-Zero-Shot-Sleep-Apnea-Detection-and-Severity-Regression.git)
 cd Physics-Informed-Multi-Task-Learning-for-Zero-Shot-Sleep-Apnea-Detection-and-Severity-Regression
+```
 Create a virtual environment and install dependencies:
 
-Bash
+```Bash
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
+```
 Usage
 1. Data Preparation
 The pipeline expects the Apnea-ECG and UCDDB datasets (accessible via PhysioNet) in your raw data directory.
 To extract 60-second segments, drop corrupted (lead-off) epochs, compute physiological features, and build serialized .pkl files, run:
 
-Bash
+```Bash
 python -m data.preprocessing
+```
 2. Model Training
 To train the PIMTL-CPC model (and comparative baselines) on the Apnea-ECG training partition, run:
 
-Bash
+```Bash
 python -m scripts.train
+```
 The training script automatically computes dynamic class weights to handle dataset imbalances, applies Cosine Annealing learning rate scheduling to avoid local minima, and saves the optimal model weights (best_pimtl.pth) based on validation Macro-F1 scores.
 
 3. Evaluation & Plotting
 To evaluate the trained models on the internal Apnea-ECG test set and perform zero-shot evaluation on the UCDDB dataset, run:
 
-Bash
+```Bash
 python -m scripts.evaluate_and_plot
+```
 This script generates publication-ready IEEE-style figures in the paper_plots/ directory:
 
 Fig 1: Dual ROC Curves comparing internal test performance versus zero-shot generalization.
