@@ -24,7 +24,6 @@ Our proposed model is a multi-branch Convolutional Neural Network specifically d
 For comprehensive benchmarking, this repository also implements several modern time-series architectures:
 * **PASE-MST:** Pre-Activation SE Multi-Stream ResNet, which explicitly processes raw ECG, EDR, R-R intervals, and CPC in parallel streams before cross-fusion.
 * **DREAM:** A 2D ResNet applied to Morlet Continuous Wavelet Transform (CWT) Scalograms, converting the 1D signal into a 2D time-frequency image space.
-* **CNN-BiGRU:** A Spatio-Temporal network combining local feature extraction with Bidirectional Gated Recurrent Units for sequential modeling.
 * **CNN-Transformer-LSTM:** A hybrid multi-scale network combining local convolutions with self-attention (Transformer Encoder) and recurrence (LSTM).
 
 ## Project Structure
