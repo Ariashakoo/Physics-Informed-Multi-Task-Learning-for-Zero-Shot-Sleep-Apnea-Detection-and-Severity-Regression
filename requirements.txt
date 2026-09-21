@@ -1,0 +1,10 @@
+wfdb
+neurokit2
+scipy
+mne
+torch
+tqdm
+scikit-learn
+matplotlib
+seaborn
+PyWavelets
